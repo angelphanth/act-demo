@@ -1,0 +1,40 @@
+[project]
+name = "act-demo"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Angel L. P.",email = "59593766+angelphanth@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+dependencies = [
+    "pillow (>=12.3.0,<13.0.0)",
+    "httpx (>=0.28.1,<0.29.0)",
+    "ipython (>=9.17.1,<10.0.0)"
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel (>=7.3.0,<8.0.0)",
+    "black (>=26.5.1,<27.0.0)",
+    "ruff"
+]
+test = [
+    "pytest (>=9.1.1,<10.0.0)"
+]
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.test]
+optional = true
+
+
+[tool.poetry]
+packages = [
+    {include = "fine_memes"}
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
