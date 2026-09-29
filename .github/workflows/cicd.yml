@@ -64,7 +64,3 @@ jobs:
       - uses: Gr1N/setup-poetry@v9
       - run: poetry build
       - uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          repository-url: https://test.pypi.org/legacy/
-          user: __token__
-          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
