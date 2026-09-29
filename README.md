@@ -1,11 +1,13 @@
 # `act` demo
 
-A ~10min intro to [act](https://github.com/nektos/act) for linux or macos
+A ~15min intro to [act](https://github.com/nektos/act) for linux or macos
 
 ## Table of Contents
 - [Installation](#installation)
 - [Requirements](#requirements)
-- [Demo](#getting-started-demo)
+- [Demo](#demo)
+    - [The `fine-memes` package](#the-fine-memes-project)
+    - [Getting started with `act`](#getting-started-with-act)
 - [Links](#links)
 - [Thank you](#thank-you)
 
@@ -50,7 +52,38 @@ colima start
 
 ---
 
-## Getting started demo
+## Demo
+
+### The `fine-memes` project
+It is a dummy package for our demo that retrieves and displays random meme images from [imgflip.com](https://imgflip.com/).
+
+#### Installation
+```bash
+#pip install fine-memes
+# For development
+poetry install
+```
+
+#### Usage
+```python
+# import
+from fine_memes import random_meme
+
+# open rando meme 
+random_meme(
+    notebook=False, #default, set to True if wanting to render in jupyter notebook
+)
+```
+
+#### Add changes
+e.g. 
+- create a copy of the `yo` function in [./fine_memes/\_\_init\_\_.py](./fine_memes/__init__.py)
+- give this new function a name of your choosing and change the img url
+- create a copy of the `test_yo` test in [./tests/test_fine_memes.py](./tests/test_fine_memes.py) as well
+
+### Getting started with `act`
+Now let's see some CI/CD in action 
+
 1. Run a job 
 ```bash
 act -j test
@@ -63,6 +96,8 @@ act pull_request
 
 3. Now try running jobs from the GitHub Local Actions
 
+Then if happy with act results then actually trigger the GitHub Actions e.g. make a pull_request
+
 ---
 
 ## Links
@@ -74,4 +109,4 @@ act pull_request
 
 
 ## Thank you 
-Thank you to the above resources and for your attention :) 
+Thank you to the above resources, [imgflip.com](https://imgflip.com/), and for your attention :) 
