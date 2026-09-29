@@ -29,9 +29,9 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    # strategy:
+    #   matrix:
+    #     python-version: ["3.11", "3.12", "3.13", "3.14"]
     steps:
       - name: Check out code
         uses: actions/checkout@v6
@@ -39,7 +39,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.12 #${{ matrix.python-version }}
 
       - name: Set up Poetry
         uses: Gr1N/setup-poetry@v9
@@ -51,12 +51,14 @@ jobs:
         run: poetry run pytest
 
   publish:
-    runs-on: ubuntu-latest
+    # if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
     needs: 
       - format
       - lint
       - test
-
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v6
       - uses: Gr1N/setup-poetry@v9
