@@ -1,40 +1,41 @@
 [project]
 name = "fine-memes"
-version = "0.1.2"
 description = ""
-authors = [
-    {name = "Angel L. P.",email = "59593766+angelphanth@users.noreply.github.com"}
-]
-readme = "README.md"
+authors = [{ name = "Angel L. P.", email = "59593766+angelphanth@users.noreply.github.com" }]
 requires-python = ">=3.11,<3.15"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dynamic = ["version"]
 dependencies = [
     "pillow (>=12.3.0,<13.0.0)",
     "httpx (>=0.28.1,<0.29.0)",
-    "ipython (>=9.17.1,<10.0.0)"
+    "ipython (>=9.17.1,<10.0.0)",
 ]
 
 [dependency-groups]
 dev = [
     "ipykernel (>=7.3.0,<8.0.0)",
     "black (>=26.5.1,<27.0.0)",
-    "ruff"
+    "ruff",
+    "pre-commit>=4.6.2",
 ]
 test = [
     "pytest (>=9.1.1,<10.0.0)"
 ]
 
-[tool.poetry.group.dev]
-optional = true
+[tool.setuptools.packages.find]
+include = ["fine_memes"]
 
-[tool.poetry.group.test]
-optional = true
-
-
-[tool.poetry]
-packages = [
-    {include = "fine_memes"}
-]
+[tool.setuptools_scm]
+version_scheme = "post-release"
+local_scheme = "node-and-date"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=64", "setuptools_scm>=8"]
