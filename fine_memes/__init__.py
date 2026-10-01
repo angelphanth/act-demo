@@ -1,6 +1,5 @@
-from importlib import metadata
-
 import random
+from importlib import metadata
 from io import BytesIO
 
 import httpx
