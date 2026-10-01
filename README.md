@@ -46,7 +46,7 @@ colima start
 
 
 > [!TIP]
-> For act+colima, you may need to set up `$DOCKER_HOST` via your shell profile (e.g., in `~/.zshrc` add `export DOCKER_HOST="$HOME/.colima/default/docker.sock"`) or set up a symlink
+> For act+colima, you may need to set up `$DOCKER_HOST` via your shell profile (e.g., in `~/.zshrc` add `export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"`) or set up a symlink
 > e.g. `sudo ln -s ~/.colima/default/docker.sock /var/run/docker.sock`
 > Check out the [colima FAQ](https://colima.run/docs/faq/#cannot-connect-to-docker-daemon-error)
 
@@ -61,7 +61,7 @@ It is a dummy package for our demo that retrieves and displays random meme image
 ```bash
 #pip install fine-memes
 # For development
-poetry install
+uv sync --all-groups
 ```
 
 #### Usage
