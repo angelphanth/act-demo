@@ -1,9 +1,13 @@
+from importlib import metadata
+
 import random
 from io import BytesIO
 
 import httpx
 from IPython.display import display
 from PIL import Image
+
+__version__ = metadata.version("fine_memes")
 
 
 def yo(notebook=False):
