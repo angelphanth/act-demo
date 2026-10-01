@@ -75,6 +75,8 @@ random_meme(
 )
 ```
 
+see [tryitout.ipynb](./tryitout.ipynb)
+
 #### Add changes
 e.g. 
 - create a copy of the `yo` function in [./fine_memes/\_\_init\_\_.py](./fine_memes/__init__.py)
